@@ -8,9 +8,9 @@ v1 = Vet.create!(first_name: "Isidora", last_name: "Mercy", email: "mercy@vetcli
 v2 = Vet.create!(first_name: "Meredith", last_name: "Grey", email: "grey@vetclinic.com", phone: "555-1002", specialization: "Surgery")
 v3 = Vet.create!(first_name: "Solange", last_name: "Sheperd", email: "sheperd@vetclinic.com", phone: "555-1003", specialization: "Dentist")
 
-o1 = Owner.create!(first_name: "María Olivia", last_name: "Urzua", email: "juan@mail.com", phone: "12345678", address: "Calle 1")
-o2 = Owner.create!(first_name: "Ignacio", last_name: "García", email: "maria@mail.com", phone: "87654321", address: "Calle 2")
-o3 = Owner.create!(first_name: "Carolina", last_name: "Cusacovich", email: "pedro@mail.com", phone: "11223344", address: "Calle 3")
+o1 = Owner.create!(first_name: "María Olivia", last_name: "Urzua", email: "maria@mail.com", phone: "12345678", address: "Calle 1")
+o2 = Owner.create!(first_name: "Ignacio", last_name: "García", email: "ignacio@mail.com", phone: "87654321", address: "Calle 2")
+o3 = Owner.create!(first_name: "Carolina", last_name: "Cusacovich", email: "carolina@mail.com", phone: "11223344", address: "Calle 3")
 
 p1 = o1.pets.create!(name: "Zeus", species: "Dog", breed: "Mixed Breed", date_of_birth: "2020-06-15", weight: 15.5)
 p2 = o1.pets.create!(name: "Apolo", species: "Cat", breed: "Rubble", date_of_birth: "2018-08-20", weight: 6.2)

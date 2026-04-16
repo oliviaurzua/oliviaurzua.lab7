@@ -1,0 +1,23 @@
+<div class="card mb-4">
+  <div class="card-header bg-success text-white">
+    <h2><%= @pet.name %></h2>
+  </div>
+  <div class="card-body">
+    <p><strong>Species:</strong> <%= @pet.species %></p>
+    <p><strong>Breed:</strong> <%= @pet.breed %></p>
+    <p><strong>Date of Birth:</strong> <%= @pet.date_of_birth&.strftime("%B %d, %Y") %></p>
+    <p><strong>Weight:</strong> <%= @pet.weight %> kg</p>
+    <p><strong>Owner:</strong> <%= link_to "#{@pet.owner.first_name} #{@pet.owner.last_name}", owner_path(@pet.owner) %></p>
+  </div>
+</div>
+
+<h3>Appointments</h3>
+<ul class="list-group">
+  <% @pet.appointments.each do |app| %>
+    <li class="list-group-item">
+      <%= link_to app.date.strftime("%B %d, %Y - %H:%M"), appointment_path(app) %> | Reason: <%= app.reason %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to Pets", pets_path, class: "btn btn-secondary mt-3" %>

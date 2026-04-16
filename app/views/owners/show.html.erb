@@ -1,0 +1,21 @@
+<div class="card mb-4">
+  <div class="card-header bg-primary text-white">
+    <h2><%= @owner.first_name %> <%= @owner.last_name %></h2>
+  </div>
+  <div class="card-body">
+    <p><strong>Email:</strong> <%= @owner.email %></p>
+    <p><strong>Phone:</strong> <%= @owner.phone %></p>
+    <p><strong>Address:</strong> <%= @owner.address %></p>
+  </div>
+</div>
+
+<h3>Pets</h3>
+<ul class="list-group">
+  <% @owner.pets.each do |pet| %>
+    <li class="list-group-item">
+      <%= link_to pet.name, pet_path(pet) %> (<%= pet.species %> - <%= pet.breed %>)
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to Owners", owners_path, class: "btn btn-secondary mt-3" %>
