@@ -12,11 +12,11 @@ o1 = Owner.create!(first_name: "María Olivia", last_name: "Urzua", email: "mari
 o2 = Owner.create!(first_name: "Ignacio", last_name: "García", email: "ignacio@mail.com", phone: "87654321", address: "Calle 2")
 o3 = Owner.create!(first_name: "Carolina", last_name: "Cusacovich", email: "carolina@mail.com", phone: "11223344", address: "Calle 3")
 
-p1 = o1.pets.create!(name: "Zeus", species: "Dog", breed: "Mixed Breed", date_of_birth: "2020-06-15", weight: 15.5)
-p2 = o1.pets.create!(name: "Apolo", species: "Cat", breed: "Rubble", date_of_birth: "2018-08-20", weight: 6.2)
-p3 = o2.pets.create!(name: "Teo", species: "Rabbit", breed: "Beveren", date_of_birth: "2023-01-15", weight: 2.1)
-p4 = o3.pets.create!(name: "Simon", species: "Dog", breed: "Golden Retriever", date_of_birth: "2020-06-15", weight: 30.0)
-p5 = o3.pets.create!(name: "Charlie", species: "Cat", breed: "Domestic Cat", date_of_birth: "2021-03-22", weight: 8.4)
+p1 = o1.pets.create!(name: "Zeus", species: "dog", breed: "Mixed Breed", date_of_birth: "2020-06-15", weight: 15.5)
+p2 = o1.pets.create!(name: "Apolo", species: "cat", breed: "Rubble", date_of_birth: "2018-08-20", weight: 6.2)
+p3 = o2.pets.create!(name: "Teo", species: "rabbit", breed: "Beveren", date_of_birth: "2023-01-15", weight: 2.1)
+p4 = o3.pets.create!(name: "Simon", species: "dog", breed: "Golden Retriever", date_of_birth: "2020-06-15", weight: 30.0)
+p5 = o3.pets.create!(name: "Charlie", species: "cat", breed: "Domestic Cat", date_of_birth: "2021-03-22", weight: 8.4)
 
 a1 = Appointment.create!(pet: p1, vet: v1, date: DateTime.now + 1.day, reason: "Otitis control", status: 0)
 a2 = Appointment.create!(pet: p2, vet: v1, date: DateTime.now + 2.days, reason: "Allergy wound management", status: 3)

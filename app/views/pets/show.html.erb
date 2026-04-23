@@ -13,7 +13,7 @@
 
 <h3>Appointments</h3>
 <ul class="list-group">
-  <% @pet.appointments.each do |app| %>
+  <% @pet.appointments.upcoming.each do |app| %>
     <li class="list-group-item">
       <%= link_to app.date.strftime("%B %d, %Y - %H:%M"), appointment_path(app) %> | Reason: <%= app.reason %>
     </li>
