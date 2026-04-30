@@ -18,4 +18,8 @@
   <% end %>
 </ul>
 
-<%= link_to "Back to Owners", owners_path, class: "btn btn-secondary mt-3" %>
+<div class="d-flex gap-2 mt-4">
+  <%= link_to "Back to Owners", owners_path, class: "btn btn-secondary" %>
+  <%= link_to "Edit", edit_owner_path(@owner), class: "btn btn-warning" %>
+  <%= button_to "Delete", owner_path(@owner), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+</div>

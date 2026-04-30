@@ -18,4 +18,8 @@
   <% end %>
 </ul>
 
-<%= link_to "Back to Vets", vets_path, class: "btn btn-secondary mt-3" %>
+<div class="d-flex gap-2 mt-4">
+  <%= link_to "Back to Vets", vets_path, class: "btn btn-secondary" %>
+  <%= link_to "Edit", edit_vet_path(@vet), class: "btn btn-warning" %>
+  <%= button_to "Delete", vet_path(@vet), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+</div>

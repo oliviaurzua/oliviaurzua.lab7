@@ -14,15 +14,23 @@ Rails.application.routes.draw do
 
   root "owners#index"
   
-  get "/owners", to: "owners#index", as: "owners"
-  get "/owners/:id", to: "owners#show", as: "owner"
+  resources :owners
+  resources :pets
+  resources :vets
 
-  get "/pets", to: "pets#index", as: "pets"
-  get "/petss/:id", to: "pets#show", as: "pet"
+  resources :appointments do
+    resources :treatments, only: [:new, :create, :edit, :update, :destroy]
+  end
 
-  get "/vets", to: "vets#index", as: "vets"
-  get "/vets/:id", to: "vets#show", as: "vet"
+  # get "/owners", to: "owners#index", as: "owners"
+  # get "/owners/:id", to: "owners#show", as: "owner"
 
-  get "/appointments", to: "appointments#index", as: "appointments"
-  get "/appointments/:id", to: "appointments#show", as: "appointment"
+  # get "/pets", to: "pets#index", as: "pets"
+  # get "/pets/:id", to: "pets#show", as: "pet"
+
+  # get "/vets", to: "vets#index", as: "vets"
+  # get "/vets/:id", to: "vets#show", as: "vet"
+
+  # get "/appointments", to: "appointments#index", as: "appointments"
+  # get "/appointments/:id", to: "appointments#show", as: "appointment"
 end

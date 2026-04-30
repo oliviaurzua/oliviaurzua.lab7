@@ -1,5 +1,3 @@
-<%= appointment.status.titleize %>
-
 <div class="card mb-4">
   <div class="card-header bg-warning text-dark">
     <h2>Appointment Details</h2>
@@ -7,13 +5,17 @@
   <div class="card-body">
     <p><strong>Date:</strong> <%= @appointment.date.strftime("%B %d, %Y at %H:%M") %></p>
     <p><strong>Reason:</strong> <%= @appointment.reason %></p>
-    <p><strong>Status:</strong> <span class="badge bg-dark"><%= status_map[@appointment.status] || "Unknown" %></span></p>
+    <p><strong>Status:</strong> <span class="badge bg-dark"><%= @appointment.status.titleize %></span></p>
     <p><strong>Pet:</strong> <%= link_to @appointment.pet.name, pet_path(@appointment.pet) %></p>
     <p><strong>Vet:</strong> <%= link_to "#{@appointment.vet.first_name} #{@appointment.vet.last_name}", vet_path(@appointment.vet) %></p>
   </div>
 </div>
 
-<h3>Treatments for this Appointment</h3>
+<div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+  <h3>Treatments for this Appointment</h3>
+  <%= link_to "Add New Treatment", new_appointment_treatment_path(@appointment), class: "btn btn-sm btn-success" %>
+</div>
+
 <% if @appointment.treatments.any? %>
   <table class="table table-bordered mt-3">
     <thead class="table-light">
@@ -23,17 +25,26 @@
         <th>Dosage</th>
         <th>Administered At</th>
         <th>Notes</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <% @appointment.treatments.each do |treatment| %>
-        <tr>
-          <td><%= treatment.name %></td>
-          <td><%= treatment.medication %></td>
-          <td><%= treatment.dosage %></td>
-          <td><%= treatment.administered_at&.strftime("%B %d, %Y") %></td>
-          <td><%= treatment.notes %></td>
-        </tr>
+        <% if treatment.persisted? %>
+          <tr>
+            <td><%= treatment.name %></td>
+            <td><%= treatment.medication %></td>
+            <td><%= treatment.dosage %></td>
+            <td><%= treatment.administered_at&.strftime("%B %d, %Y") %></td>
+            <td><%= treatment.notes %></td>
+            <td>
+              <div class="d-flex gap-2">
+                <%= link_to "Edit", edit_appointment_treatment_path(@appointment, treatment), class: "btn btn-sm btn-warning" %>
+                <%= button_to "Delete", appointment_treatment_path(@appointment, treatment), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
@@ -41,4 +52,8 @@
   <p class="text-muted">No treatments recorded for this appointment.</p>
 <% end %>
 
-<%= link_to "Back to Appointments", appointments_path, class: "btn btn-secondary mt-3" %>
+<div class="d-flex gap-2 mt-4">
+  <%= link_to "Back to Appointments", appointments_path, class: "btn btn-secondary" %>
+  <%= link_to "Edit", edit_appointment_path(@appointment), class: "btn btn-warning" %>
+  <%= button_to "Delete", appointment_path(@appointment), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+</div>

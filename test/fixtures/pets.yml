@@ -1,0 +1,15 @@
+one:
+  name: Firulais
+  species: dog
+  breed: Quiltro
+  weight: 15.5
+  date_of_birth: 2020-01-01
+  owner: one # Esto conecta mágicamente con "Juan" del owners.yml
+
+two:
+  name: Michi
+  species: cat
+  breed: Siames
+  weight: 4.2
+  date_of_birth: 2021-05-10
+  owner: two # Esto conecta con "Maria"

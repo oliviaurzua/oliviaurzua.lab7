@@ -1,0 +1,13 @@
+one:
+  first_name: Doctor
+  last_name: Dolittle
+  email: doc@vet.com
+  specialization: Cirugía
+  phone: "111222333"
+
+two:
+  first_name: Vet
+  last_name: Pro
+  email: pro@vet.com
+  specialization: General
+  phone: "444555666"

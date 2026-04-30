@@ -1,0 +1,15 @@
+one:
+  name: Vacuna Antirrábica
+  medication: Rabisin
+  dosage: 1 dosis
+  notes: Todo normal
+  administered_at: 2024-12-01 10:30:00
+  appointment: one
+
+two:
+  name: Desparasitación
+  medication: Drontal
+  dosage: media pastilla
+  notes: Dar con comida
+  administered_at: 2024-12-05 16:00:00
+  appointment: two

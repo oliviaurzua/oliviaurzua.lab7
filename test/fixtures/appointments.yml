@@ -1,0 +1,13 @@
+one:
+  date: 2024-12-01 10:00:00
+  reason: Control sano
+  status: scheduled
+  pet: one
+  vet: one
+
+two:
+  date: 2024-12-05 15:30:00
+  reason: Vacuna anual
+  status: completed
+  pet: two
+  vet: two
