@@ -30,6 +30,19 @@
     <%= form.collection_select :owner_id, Owner.all, :id, :email, { prompt: "Select an owner..." }, { class: "form-select" } %>
   </div>
 
+  <div class="mb-3">
+    <%= form.label :photo, class: "form-label" %>
+  
+    <% if form.object.photo.attached? %>
+      <div class="mb-2">
+        <span class="d-block text-muted" style="font-size: 0.9em;">Current photo:</span>
+        <%= image_tag form.object.photo, style: "width: 100px;", class: "rounded" %>
+      </div>
+    <% end %>
+
+    <%= form.file_field :photo, class: "form-control" %>
+  </div>
+
   <div>
     <%= form.submit "Save Pet", class: "btn btn-primary" %>
   </div>

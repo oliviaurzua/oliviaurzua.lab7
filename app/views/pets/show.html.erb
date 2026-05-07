@@ -11,6 +11,16 @@
   </div>
 </div>
 
+<div class="mb-4">
+  <% if @pet.photo.attached? %>
+    <%= image_tag @pet.photo, class: "img-fluid rounded", style: "max-width: 300px;" %>
+  <% else %>
+    <div class="p-3 bg-light text-secondary rounded d-inline-block" style="width: 300px; text-align: center;">
+      <i class="bi bi-camera"></i> No photo available
+    </div>
+  <% end %>
+</div>
+
 <h3>Appointments</h3>
 <ul class="list-group">
   <% @pet.appointments.upcoming.each do |app| %>

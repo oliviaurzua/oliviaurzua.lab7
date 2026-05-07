@@ -16,7 +16,7 @@
   <%= link_to "Add New Treatment", new_appointment_treatment_path(@appointment), class: "btn btn-sm btn-success" %>
 </div>
 
-<% if @appointment.treatments.any? %>
+<% if @treatments.any? %>
   <table class="table table-bordered mt-3">
     <thead class="table-light">
       <tr>
@@ -29,14 +29,14 @@
       </tr>
     </thead>
     <tbody>
-      <% @appointment.treatments.each do |treatment| %>
+      <% @treatments.each do |treatment| %>
         <% if treatment.persisted? %>
           <tr>
             <td><%= treatment.name %></td>
             <td><%= treatment.medication %></td>
             <td><%= treatment.dosage %></td>
             <td><%= treatment.administered_at&.strftime("%B %d, %Y") %></td>
-            <td><%= treatment.notes %></td>
+            <td><%= treatment.clinical_notes %></td>
             <td>
               <div class="d-flex gap-2">
                 <%= link_to "Edit", edit_appointment_treatment_path(@appointment, treatment), class: "btn btn-sm btn-warning" %>

@@ -12,6 +12,7 @@
       <th>Owner Name</th>
       <th>Date of Birth</th>
       <th>Action</th>
+      <th>Photo</th>
     </tr>
   </thead>
   <tbody>
@@ -28,6 +29,13 @@
             <%= link_to "Edit", edit_pet_path(pet), class: "btn btn-sm btn-warning" %>
             <%= button_to "Delete", pet_path(pet), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
           </div>
+        </td>
+        <td>
+          <% if pet.photo.attached? %>
+            <%= image_tag pet.photo.variant(resize_to_fill: [60, 60]), class: "rounded" %>
+          <% else %>
+            <div class="bg-light rounded d-inline-block" style="width: 60px; height: 60px;"></div>
+          <% end %>
         </td>
       </tr>
     <% end %>
