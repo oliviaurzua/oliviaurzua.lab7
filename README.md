@@ -1,24 +1,13 @@
-# README
+# VetClinic App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup Instructions
+1. Run `bundle install`
+2. Run `bin/rails db:setup`
+3. Run `bin/rails server`
 
-Things you may want to cover:
+## System Dependencies
+**Important:** This application requires `libvips` to generate image variants for Active Storage.
+- On Ubuntu/Debian, install it running: `sudo apt install libvips`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Sanitization Check
+During the Action Text sanitization check, pasting `<script>alert(1)</script>` into the Trix editor was successfully sanitized. The script did not execute, and the raw text was safely rendered as escaped text on the show page.
